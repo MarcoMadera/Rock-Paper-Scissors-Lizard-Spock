@@ -4,8 +4,30 @@
   box-sizing: border-box;
 }
 
-body{
-  background-color: cadetblue;
+body {
   color: #fff;
-  text-align: center;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  background: var(--Background);
+  height: 100vh;
+}
+
+#app {
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  display: flex;
+}
+
+:root {
+  --Scissors: linear-gradient(to left, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  --Paper: linear-gradient(to left, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  --Rock: linear-gradient(to left, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  --Lizard: linear-gradient(to left, hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+  --Cyan: linear-gradient(to left, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+
+  --Dark-Text: hsl(229, 25%, 31%);
+  --Score-Text: hsl(229, 64%, 46%);
+  --Header-Outline: hsl(217, 16%, 45%);
+
+  --Background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
 }

@@ -1,0 +1,46 @@
+.chip {
+  width: 129.37px;
+  height: 132.66px;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.chip:active {
+  position: relative;
+  top: 1px;
+  transform: scale(0.98);
+}
+
+.chip__shadow {
+  display: flex;
+  align-items: center;
+  width: 129.37px;
+  height: 126.78px;
+  border-radius: 50%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.25) 100%
+  );
+}
+
+.chip__content {
+  display: flex;
+  align-items: flex-end;
+  margin: 0 auto;
+  width: 99.31px;
+  height: 99.33px;
+  border-radius: 50%;
+  background-color: rgb(186, 191, 212);
+}
+.chip__content__shadow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(0deg, rgb(243, 243, 243), rgb(218, 218, 218));
+  width: 99.31px;
+  height: 94.1px;
+  border-radius: 50%;
+}

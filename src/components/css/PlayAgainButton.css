@@ -1,0 +1,21 @@
+.PlayAgainButton {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 220px;
+  height: 48px;
+  border-radius: 8px;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(
+    0deg,
+    rgb(243, 243, 243) 0%,
+    rgb(255, 255, 255) 100%
+  );
+  cursor: pointer;
+}
+
+.PlayAgainButton > p {
+  color: rgb(59, 66, 98) !important;
+  letter-spacing: 2.5px !important;
+  font-weight: 600 !important;
+}

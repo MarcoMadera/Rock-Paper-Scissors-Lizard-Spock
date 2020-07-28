@@ -1,7 +1,7 @@
 {
-  "name": "react-template",
+  "name": "rock-paper-scissors",
   "version": "0.1.0",
-  "description": "React Template",
+  "description": "rock-paper-scissors-smock-lizard",
   "main": "src/index.js",
   "keywords": [
     "react",

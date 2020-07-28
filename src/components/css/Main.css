@@ -1,0 +1,11 @@
+main {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 305 277' width='166' heigth='188'%3E%3Cpath fill='none' stroke='%23000' stroke-width='30' d='M291.5 7.5H4.574c3.119 0 52.416 84.667 147.892 254L291.5 7.5z' opacity='.2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.selector {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

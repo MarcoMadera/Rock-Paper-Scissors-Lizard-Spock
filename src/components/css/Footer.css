@@ -1,0 +1,20 @@
+.footer {
+  display: flex;
+  margin: 34px auto;
+  width: 128px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid white;
+  justify-content: center;
+}
+
+.footer:hover {
+  cursor: pointer;
+}
+
+.footer p {
+  align-self: center;
+  letter-spacing: 2.5px;
+  font-weight: 600;
+  font-size: 16px;
+}
