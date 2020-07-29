@@ -6,7 +6,7 @@ import Scissors from "./icons/Scissors";
 import Lizard from "./icons/Lizard";
 import Spock from "./icons/Spock";
 
-export default ({ type = "default", onClick }) => {
+export default ({ type = "default", onClick, winner }) => {
   return (
     <div
       className="chip"
@@ -23,6 +23,9 @@ export default ({ type = "default", onClick }) => {
             : type === "spock"
             ? "rgb(45, 141, 171)"
             : "rgba(255, 255, 255,0.1)",
+        boxShadow:
+          winner &&
+          "0 0 0 80px rgba(255,255,255,.04), 0 0 0 50px rgba(255,255,255,.03), 0 0 0 25px rgba(255,255,255,.01)",
       }}
       onClick={() => {
         onClick && onClick(type);

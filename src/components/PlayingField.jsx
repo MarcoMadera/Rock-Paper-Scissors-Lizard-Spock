@@ -2,8 +2,14 @@ import React, { useEffect } from "react";
 import Chip from "./Chip";
 import PlayAgainButton from "./PlayAgainButton";
 import "./css/PlayingField.css";
-const PlayingField = ({ chips, selected, setScore, setIsPlaying }) => {
-  const randomChip = chips[Math.round(Math.random() * (chips.length - 1))];
+const PlayingField = ({
+  randomChip,
+  selected,
+  setScore,
+  setIsPlaying,
+  setWinner,
+  winner,
+}) => {
   const result = (s, r) => {
     if (
       (s === "scissors" && r === "paper") ||
@@ -17,29 +23,43 @@ const PlayingField = ({ chips, selected, setScore, setIsPlaying }) => {
       (s === "lizard" && r === "paper") ||
       (s === "spock" && r === "rock")
     ) {
-      useEffect(() => setScore((value) => value + 1));
+      useEffect(() => {
+        setScore((value) => value + 1);
+        setWinner({ player: true, house: false });
+      }, []);
       return "You Win";
     } else {
       if (s === r) {
+        useEffect(() => setWinner({ player: false, house: false }), []);
         return "DRAW";
       } else {
+        useEffect(() => {
+          setScore((value) => value - 1);
+          setWinner({ player: false, house: true });
+        }, []);
         return "You Lose";
       }
     }
   };
   return (
-    <main className="selector">
+    <div className="selector">
       <div className="">
-        <Chip type={selected} />
-        <p>You selected</p>
+        <Chip type={selected} winner={winner.player} />
+        <p>YOU PICKED</p>
       </div>
-      <div className="">
-        <Chip type={randomChip} />
-        <p>The house selected</p>
-      </div>
-      <h1>{result(selected, randomChip)}</h1>
-      <PlayAgainButton setIsPlaying={setIsPlaying} />
-    </main>
+      {randomChip ? (
+        <>
+          <div>
+            <Chip type={randomChip} winner={winner.house} />
+            <p>THE HOUSE PICKED</p>
+          </div>
+          <h1 className="results">{result(selected, randomChip)}</h1>
+          <PlayAgainButton setIsPlaying={setIsPlaying} />
+        </>
+      ) : (
+        <span className="default-piece"></span>
+      )}
+    </div>
   );
 };
 

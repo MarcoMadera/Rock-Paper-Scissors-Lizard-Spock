@@ -9,7 +9,7 @@
 
 .chip:active {
   position: relative;
-  top: 1px;
+  top: 3px;
   transform: scale(0.98);
 }
 
