@@ -11,13 +11,6 @@ body {
   height: 100vh;
 }
 
-#app {
-  height: 100%;
-  flex-direction: column;
-  justify-content: space-between;
-  display: flex;
-}
-
 :root {
   --Scissors: linear-gradient(to left, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
   --Paper: linear-gradient(to left, hsl(230, 89%, 62%), hsl(230, 89%, 65%));

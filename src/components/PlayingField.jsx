@@ -1,66 +1,70 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Chip from "./Chip";
 import PlayAgainButton from "./PlayAgainButton";
 import "./css/PlayingField.css";
-const PlayingField = ({
-  randomChip,
-  selected,
-  setScore,
-  setIsPlaying,
-  setWinner,
-  winner,
-}) => {
-  const result = (s, r) => {
-    if (
-      (s === "scissors" && r === "paper") ||
-      (s === "paper" && r === "rock") ||
-      (s === "rock" && r === "lizard") ||
-      (s === "lizard" && r === "spock") ||
-      (s === "spock" && r === "scissors") ||
-      (s === "scissors" && r === "lizard") ||
-      (s === "paper" && r === "spock") ||
-      (s === "rock" && r === "scissors") ||
-      (s === "lizard" && r === "paper") ||
-      (s === "spock" && r === "rock")
-    ) {
-      useEffect(() => {
-        setScore((value) => value + 1);
-        setWinner({ player: true, house: false });
-      }, []);
-      return "You Win";
-    } else {
-      if (s === r) {
-        useEffect(() => setWinner({ player: false, house: false }), []);
-        return "DRAW";
-      } else {
-        useEffect(() => {
-          setScore((value) => value - 1);
-          setWinner({ player: false, house: true });
-        }, []);
-        return "You Lose";
-      }
-    }
-  };
+import PropTypes from "prop-types";
+
+const PlayingField = ({ selected, reset, randomChip, winner, result }) => {
+  const [showResults, setShowResults] = useState(false);
+  const [showRandom, setShowRandom] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      result();
+      setShowResults(true);
+    }, 1000);
+    setTimeout(() => {
+      setShowRandom(true);
+    }, 400);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
+
   return (
     <div className="selector">
-      <div className="">
-        <Chip type={selected} winner={winner.player} />
+      <div className="selector-encounter">
+        <Chip
+          type={selected}
+          winner={winner.player}
+          showResults={showResults}
+        />
         <p>YOU PICKED</p>
       </div>
-      {randomChip ? (
+      {randomChip && showRandom ? (
         <>
-          <div>
-            <Chip type={randomChip} winner={winner.house} />
+          <div className="selector-encounter">
+            <Chip
+              type={randomChip}
+              winner={winner.house}
+              showResults={showResults}
+            />
             <p>THE HOUSE PICKED</p>
           </div>
-          <h1 className="results">{result(selected, randomChip)}</h1>
-          <PlayAgainButton setIsPlaying={setIsPlaying} />
+          {showResults && (
+            <div className="finalResults">
+              <h1 className="results">
+                {!winner.player && !winner.house
+                  ? "Draw"
+                  : winner.player
+                    ? "You Win"
+                    : "You Lose"}
+              </h1>
+              <PlayAgainButton reset={reset} />
+            </div>
+          )}
         </>
       ) : (
         <span className="default-piece"></span>
       )}
     </div>
   );
+};
+
+PlayingField.propTypes = {
+  selected: PropTypes.string.isRequired,
+  reset: PropTypes.func,
+  randomChip: PropTypes.string.isRequired,
+  winner: PropTypes.object,
+  result: PropTypes.func,
 };
 
 export default PlayingField;

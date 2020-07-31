@@ -44,3 +44,26 @@
   font-size: 40px;
   line-height: 1;
 }
+
+@media screen and (min-width: 760px) {
+  .header__container {
+    width: 700px;
+    height: 150px;
+    border-radius: 15px;
+  }
+
+  .header__score {
+    width: 150px;
+    height: 115px;
+  }
+  .header__score p {
+    font-size: 16px;
+  }
+  .header__score h1 {
+    font-size: 70px;
+  }
+  .header__logo {
+    width: 200px;
+    height: 100px;
+  }
+}

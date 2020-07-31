@@ -1,7 +1,8 @@
 import React from "react";
 import "./css/Header.css";
 import Logo from "./images/Logo";
-export default ({ score }) => {
+import PropTypes from "prop-types";
+const Header = ({ score }) => {
   return (
     <header className="header">
       <div className="header__container">
@@ -14,3 +15,8 @@ export default ({ score }) => {
     </header>
   );
 };
+
+Header.propTypes={
+  score: PropTypes.number
+};
+export default Header;

@@ -12,17 +12,26 @@ const App = () => {
   const [score, setScore] = useState(
     parseInt(localStorage.getItem("score"), 10) || 0
   );
+
   useEffect(() => {
     localStorage.setItem("score", score.toString());
   }, [score]);
+  
   const [show, setShow] = useState(false);
   const openModal = () => setShow(true);
   const closeModal = () => setShow(false);
+  const [game, setGame] = useState();
+
   return (
     <Fragment>
-      <Modal closeModal={closeModal} show={show} />
+      <Modal
+        closeModal={closeModal}
+        show={show}
+        game={game}
+        setGame={setGame}
+      />
       <Header score={score} />
-      <Main setScore={setScore} />
+      <Main setScore={setScore} game={game} />
       <Footer
         onClick={onClickRules}
         openModal={openModal}

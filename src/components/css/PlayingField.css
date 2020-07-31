@@ -1,3 +1,13 @@
+.selector {
+  width: 340px;
+  height: 318px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 23px;
+  justify-items: center;
+}
+
 .selector p {
   font-size: 15px;
   letter-spacing: 1.88px;
@@ -6,6 +16,8 @@
   font-weight: 700;
   align-self: center;
   text-align: center;
+  width: max-content;
+  margin: auto;
 }
 .selector h1 {
   font-size: 56px;
@@ -27,4 +39,55 @@
 .results {
   display: block;
   position: relative;
+}
+
+.finalResults {
+  grid-column: span 2;
+  position: relative;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+}
+
+@media screen and (min-width: 760px) {
+  .selector {
+    transform: scale(1.52);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0;
+    grid-template-areas: "player result house";
+    text-align: center;
+    justify-content: center;
+    width: auto;
+  }
+
+  .selector > div:nth-of-type(1) {
+    grid-area: player;
+  }
+  .selector > div:nth-of-type(2) {
+    grid-area: house;
+  }
+  .selector > div:nth-of-type(3) {
+    grid-area: result;
+  }
+
+  .selector-encounter {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "title" "chip";
+  }
+
+  .selector-encounter div {
+    grid-area: chip;
+  }
+  .selector-encounter p {
+    grid-area: title;
+  }
+  .finalResults {
+    transform: scale(0.7);
+  }
+  .default-piece {
+    grid-area: house;
+    margin-top: 30px;
+  }
 }
