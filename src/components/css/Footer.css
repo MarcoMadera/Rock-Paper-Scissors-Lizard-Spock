@@ -1,19 +1,13 @@
 .Footer {
-  display: flex;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  justify-content: center;
-}
-
-.button__container {
-  display: inline-block;
-  margin: 10px;
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 80px;
 }
 
 .footer__game,
 .footer__rules {
+  margin: 40px auto 10px auto;
   display: flex;
   width: 128px;
   height: 40px;
@@ -39,5 +33,13 @@
 @media screen and (min-width: 760px) {
   .Footer {
     justify-content: space-between;
+  }
+  .footer__game {
+    float: left;
+    margin: 10px;
+  }
+  .footer__rules {
+    float: right;
+    margin: 10px;
   }
 }

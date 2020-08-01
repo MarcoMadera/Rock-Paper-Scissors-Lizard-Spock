@@ -4,15 +4,11 @@ import PropTypes from "prop-types";
 
 const Footer = ({ onClick, onClickGame }) => (
   <div className="Footer">
-    <div className="button__container">
-      <div className="footer__game" onClick={() => onClickGame()}>
-        <p>GAME</p>
-      </div>
+    <div className="footer__game" onClick={() => onClickGame()}>
+      <p>GAME</p>
     </div>
-    <div className="button__container">
-      <div className="footer__rules" onClick={() => onClick()}>
-        <p>RULES</p>
-      </div>
+    <div className="footer__rules" onClick={() => onClick()}>
+      <p>RULES</p>
     </div>
   </div>
 );
