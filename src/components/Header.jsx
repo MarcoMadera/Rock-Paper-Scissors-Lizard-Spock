@@ -1,22 +1,33 @@
 import React from "react";
 import "./css/Header.css";
 import Logo from "./images/Logo";
+import LogoBonus from "./images/LogoBonus";
 import PropTypes from "prop-types";
-const Header = ({ score }) => {
+const Header = ({ classicalScore, bonusScore, game }) => {
   return (
     <header className="header">
       <div className="header__container">
-        <Logo width={83} height={48} className="header__logo" />
+        {game === "bonus" ? (
+          <LogoBonus
+            width={83}
+            height={48}
+            className="header__logo logomodal"
+          />
+        ) : (
+          <Logo width={83} height={48} className="header__logo " />
+        )}
         <div className="header__score">
           <p>SCORE</p>
-          <h1>{score}</h1>
+          <h1>{game === "bonus" ? bonusScore : classicalScore}</h1>
         </div>
       </div>
     </header>
   );
 };
 
-Header.propTypes={
-  score: PropTypes.number
+Header.propTypes = {
+  classicalScore: PropTypes.number,
+  bonusScore: PropTypes.number,
+  game: PropTypes.string,
 };
 export default Header;

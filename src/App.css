@@ -8,7 +8,7 @@ body {
   color: #fff;
   font-family: "Barlow Semi Condensed", sans-serif;
   background: var(--Background);
-  height: 100vh;
+  min-height: 768px;
 }
 
 :root {

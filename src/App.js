@@ -9,19 +9,27 @@ const App = () => {
   const onClickRules = () => {
     openModal();
   };
-  const [score, setScore] = useState(
-    parseInt(localStorage.getItem("score"), 10) || 0
+  const onClickGame = () => {
+    setGame();
+    openModal();
+  };
+
+  const [classicalScore, setClassicalScore] = useState(
+    parseInt(localStorage.getItem("classicalScore"), 10) || 0
+  );
+  const [bonusScore, setBonusScore] = useState(
+    parseInt(localStorage.getItem("bonusScore"), 10) || 0
   );
 
   useEffect(() => {
-    localStorage.setItem("score", score.toString());
-  }, [score]);
-  
+    localStorage.setItem("classicalScore", classicalScore.toString());
+    localStorage.setItem("bonusScore", bonusScore.toString());
+  }, [classicalScore, bonusScore]);
+
   const [show, setShow] = useState(false);
   const openModal = () => setShow(true);
   const closeModal = () => setShow(false);
   const [game, setGame] = useState();
-
   return (
     <Fragment>
       <Modal
@@ -29,15 +37,20 @@ const App = () => {
         show={show}
         game={game}
         setGame={setGame}
+        classicalScore={classicalScore}
+        bonusScore={bonusScore}
       />
-      <Header score={score} />
-      <Main setScore={setScore} game={game} />
-      <Footer
-        onClick={onClickRules}
-        openModal={openModal}
-        closeModal={closeModal}
-        show={show}
+      <Header
+        classicalScore={classicalScore}
+        bonusScore={bonusScore}
+        game={game}
       />
+      <Main
+        setClassicalScore={setClassicalScore}
+        setBonusScore={setBonusScore}
+        game={game}
+      />
+      <Footer onClick={onClickRules} onClickGame={onClickGame} />
     </Fragment>
   );
 };

@@ -6,6 +6,10 @@
   display: none;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .modal {
   display: flex;
   position: fixed;
@@ -19,15 +23,73 @@
 }
 
 .modal h1 {
-  position: absolute;
   top: 0;
   color: rgb(59, 66, 98);
-  margin-top: 95px;
+}
+
+.modal__rulesTitle {
+  margin: 40px;
+  grid-area: rulesTitle;
 }
 
 .modal__close {
-  position: absolute;
+  margin: 40px;
   cursor: pointer;
-  margin-bottom: 66px;
-  bottom: 0;
+  grid-area: close;
+}
+.rulesModal {
+  grid-area: rules;
+}
+
+.modal__selectGame {
+  font-size: 40px;
+  color: white !important;
+  margin-bottom: 50px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 1s ease;
+}
+
+.logomodal {
+  margin-left: 15px;
+  height: 60px;
+}
+
+@media screen and (min-width: 768px) {
+  .mrules {
+    display: grid;
+    grid-auto-rows: 30px 350px;
+    grid-template-areas: "rulesTitle close " "rules rules";
+    width: calc(100% - 52px);
+    top: 50%;
+    transform: translate(0%, -50%);
+    position: fixed;
+    padding: 12px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    height: fit-content;
+    min-height: 415px;
+    border-radius: 8px;
+    background-color: white;
+  }
+  .logomodal {
+    width: 150px;
+    height: 100px;
+  }
+  .modal__rulesTitle {
+    margin: 0;
+  }
+  .modal__close {
+    margin: 0 0 0 auto;
+  }
 }

@@ -1,6 +1,6 @@
 .principal {
+  margin-top: 40px;
   display: flex;
-  height: 494px;
   align-items: center;
   justify-content: center;
 }
@@ -14,16 +14,48 @@
   justify-content: center;
   justify-items: center;
 }
-.chip:nth-of-type(3) {
+
+.select-ChipsBonus {
+  transform: scale(0.742);
+}
+.select-ChipsBonus {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='329' height='313'%3E%3Cpath fill='none' stroke='%23000' stroke-width='20' d='M164.5 9.27L9.26 122.06l59.296 182.495h191.888L319.74 122.06 164.5 9.271z' opacity='.2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  display: grid;
+  grid-template-columns: repeat(14, 31px);
+  grid-template-rows: repeat(9, 1fr);
+}
+.select-ChipsBonus .chip:nth-of-type(1) {
+  grid-area: 3 / 11 / 6 / 12;
+}
+.select-ChipsBonus .chip:nth-of-type(2) {
+  grid-area: 1 / 6 / 4 / 8;
+}
+.select-ChipsBonus .chip:nth-of-type(3) {
+  grid-area: 7 / 9 / 10 / 10;
+}
+.select-ChipsBonus .chip:nth-of-type(4) {
+  grid-area: 7 / 3 / 10 / 6;
+}
+.select-ChipsBonus .chip:nth-of-type(5) {
+  grid-area: 3 / 1 / 6 / 4;
+}
+
+.select-Chips .chip:nth-of-type(3) {
   grid-column: span 2;
 }
 
 @media screen and (min-width: 760px) {
+  .principal {
+    margin: 0;
+    transform: translateY(50px);
+  }
   .select-Chips {
     transform: scale(1.52);
   }
-  .principal {
-    height: 394px;
-    transform: translateY(50px);
+  .select-ChipsBonus {
+    transform: scale(1.15);
+    grid-template-columns: repeat(14, 30px);
   }
 }

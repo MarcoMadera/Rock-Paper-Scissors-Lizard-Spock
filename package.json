@@ -1,14 +1,14 @@
 {
-  "name": "rock-paper-scissors",
+  "name": "rock-paper-scissors-lizard-spock",
   "version": "0.1.0",
-  "description": "rock-paper-scissors-smock-lizard",
+  "description": "Rock Paper Scissors Lizard Spock",
   "main": "src/index.js",
   "keywords": [
     "react",
     "webpack"
   ],
   "author": "Marco Madera <marcomaderaa@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",

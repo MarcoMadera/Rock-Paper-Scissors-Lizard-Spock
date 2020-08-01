@@ -4,16 +4,23 @@ import Chip from "./Chip";
 import PlayingField from "./PlayingField";
 import PropTypes from "prop-types";
 
-const Main = ({ setScore, game }) => {
+const Main = ({ setClassicalScore, game, setBonusScore }) => {
   const [chips, setChips] = useState(["paper", "scissors", "rock"]);
   const [selected, setSelected] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
   const [randomChip, setRandomChip] = useState();
   const [winner, setWinner] = useState({ player: false, house: false });
-
   useEffect(() => {
     if (game === "bonus") {
+      document.title = "Rock Paper Scissors Lizard Spock";
       setChips(["paper", "scissors", "rock", "lizard", "spock"]);
+    }
+    if (game === "classical") {
+      document.title = "Rock Paper Scissors";
+      setChips(["paper", "scissors", "rock"]);
+    }
+    if (!game) {
+      document.title = "Frontend Mentor | Rock Paper Scissors";
     }
   }, [game]);
 
@@ -42,13 +49,17 @@ const Main = ({ setScore, game }) => {
       (selected === "spock" && randomChip === "rock")
     ) {
       setWinner({ player: true, house: false });
-      setScore((value) => value + 1);
+      game === "bonus"
+        ? setBonusScore((value) => value + 1)
+        : setClassicalScore((value) => value + 1);
     } else {
       if (selected === randomChip) {
         setWinner({ player: false, house: false });
       } else {
         setWinner({ player: false, house: true });
-        setScore((value) => value - 1);
+        game === "bonus"
+          ? setBonusScore((value) => value - 1)
+          : setClassicalScore((value) => value - 1);
       }
     }
   };
@@ -65,7 +76,9 @@ const Main = ({ setScore, game }) => {
         />
       ) : (
         !isPlaying && (
-          <div className="select-Chips">
+          <div
+            className={game === "bonus" ? "select-ChipsBonus" : "select-Chips"}
+          >
             {chips.map((chip) => (
               <Chip type={chip} onClick={onClickChip} key={chip} />
             ))}
@@ -77,7 +90,8 @@ const Main = ({ setScore, game }) => {
 };
 
 Main.propTypes = {
-  setScore: PropTypes.func,
+  setClassicalScore: PropTypes.func,
+  setBonusScore: PropTypes.func,
   game: PropTypes.string,
 };
 export default Main;
