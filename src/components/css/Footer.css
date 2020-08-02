@@ -8,12 +8,10 @@
 .footer__game,
 .footer__rules {
   margin: 40px auto 10px auto;
-  display: flex;
   width: 128px;
   height: 40px;
   border-radius: 8px;
   border: 1px solid white;
-  justify-content: center;
   background-color: transparent;
 }
 
@@ -22,13 +20,13 @@
   cursor: pointer;
   background: linear-gradient(rgb(243, 243, 243), rgb(255, 255, 255));
 }
-.footer__rules:hover p,
-.footer__game:hover p {
+.footer__rules:hover,
+.footer__game:hover {
   color: rgb(59, 66, 98);
 }
 
-.footer__rules p,
-.footer__game p {
+.footer__rules,
+.footer__game {
   align-self: center;
   letter-spacing: 2.5px;
   font-weight: 600;

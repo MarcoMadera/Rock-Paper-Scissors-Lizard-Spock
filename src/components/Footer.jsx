@@ -10,14 +10,14 @@ const Footer = ({ onClick, onClickGame, show }) => {
         onClick={() => onClickGame()}
         tabIndex={show ? "-1" : ""}
       >
-        <p>MODE</p>
+        MODE
       </button>
       <button
         className="footer__rules"
         onClick={() => onClick()}
         tabIndex={show ? "-1" : ""}
       >
-        <p>RULES</p>
+        RULES
       </button>
     </footer>
   );

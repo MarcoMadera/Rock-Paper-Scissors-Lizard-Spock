@@ -6,7 +6,6 @@ const LogoBonus = (props) => (
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 115 114"
-    aria-labelledby="title"
   >
     <title>Rock Paper Scissors Lizard Spock Mode</title>
     <defs>

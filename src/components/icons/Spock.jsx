@@ -1,7 +1,7 @@
 import React from "react";
 
 const Spock = (props) => (
-  <svg width={45} height={59} aria-labelledby="title" {...props}>
+  <svg width={45} height={59} {...props}>
     <title>Spock Chip</title>
     <path
       fill="#3B4262"

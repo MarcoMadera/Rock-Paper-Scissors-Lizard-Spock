@@ -1,7 +1,7 @@
 import React from "react";
 
 const Logo = (props) => (
-  <svg viewBox="0 0 162 99" aria-labelledby="title" {...props}>
+  <svg viewBox="0 0 162 99" {...props}>
     <title>Rock Paper Scissors Mode</title>
     <defs>
       <filter

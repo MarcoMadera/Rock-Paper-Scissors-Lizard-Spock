@@ -1,7 +1,7 @@
 import React from "react";
 
 const Scissors = (props) => (
-  <svg width={51} height={58} aria-labelledby="title" {...props}>
+  <svg width={51} height={58} {...props}>
     <title>Scissors Chip</title>
     <path
       fill="#3B4262"

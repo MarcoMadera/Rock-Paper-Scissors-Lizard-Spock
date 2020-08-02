@@ -1,7 +1,7 @@
 import React from "react";
 
 const Close = (props) => (
-  <svg width={20} height={20} aria-labelledby="title" {...props}>
+  <svg width={20} height={20} {...props}>
     <title>Close Button</title>
     <path
       fill="#3B4262"

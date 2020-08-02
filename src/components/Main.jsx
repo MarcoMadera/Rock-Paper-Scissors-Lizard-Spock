@@ -80,7 +80,7 @@ const Main = ({ setClassicalScore, game, setBonusScore, show }) => {
           show={show}
         />
       ) : (
-        !isPlaying && (
+        !isPlaying && game &&(
           <div
             className={game === "bonus" ? "select-ChipsBonus" : "select-Chips"}
           >

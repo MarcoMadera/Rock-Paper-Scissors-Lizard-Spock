@@ -33,7 +33,6 @@ const Modal = ({
 
   const modal = !game ? (
     <div className="modal__container">
-      <div onClick={closeModal} />
       <div
         className="modal"
         style={{
@@ -41,27 +40,33 @@ const Modal = ({
         }}
       >
         <h1 className="modal__selectGame">Select game mode</h1>
-        <button
+        <div
           aria-label="Rock Paper Scissors Mode"
           className="header__container pointer"
           onClick={() => {
             setGame("classical");
             closeModal();
           }}
+          role="button"
+          tabIndex="0"
+          onKeyDown={((e)=>{e.keyCode===13 && setGame("classical");  closeModal();})}
         >
           <Logo width={83} height={48} className="header__logo" />
           <div className="header__score">
             <p>SCORE</p>
             <h1>{classicalScore}</h1>
           </div>
-        </button>
-        <button
+        </div>
+        <div
           aria-label="Rock Paper Scissors Lizard Spock Mode"
           className="header__container pointer"
           onClick={() => {
             setGame("bonus");
             closeModal();
           }}
+          role="button"
+          tabIndex="0"
+          onKeyDown={((e)=>{e.keyCode===13 && setGame("bonus");  closeModal();})}
         >
           <LogoBonus
             width={83}
@@ -72,12 +77,12 @@ const Modal = ({
             <p>SCORE</p>
             <h1>{bonusScore}</h1>
           </div>
-        </button>
+        </div>
       </div>
     </div>
   ) : (
     <div className="modal__container">
-      <div className={show ? "overlay" : "hide"} onClick={closeModal} />
+      <div className={show ? "overlay" : "hide"} onClick={closeModal} aria-checked={show} onKeyDown={((e)=>e.keyCode===13 && closeModal())}  role="switch" tabIndex="0"/>
       <div className={show ? "modal mrules" : "hide"}>
         <h1 className="modal__rulesTitle">Rules</h1>
         {game === "bonus" ? (
@@ -88,7 +93,7 @@ const Modal = ({
         <button
           className="modal__close"
           aria-label="Close Modal"
-          tabIndex="1"
+          tabIndex="0"
           onClick={() => {
             closeModal();
           }}

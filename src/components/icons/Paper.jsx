@@ -1,7 +1,7 @@
 import React from "react";
 
 const Paper = (props) => (
-  <svg width={49} height={59} aria-labelledby="title" {...props}>
+  <svg width={49} height={59} {...props}>
     <title>Paper Chip</title>
     <path
       fill="#3B4262"

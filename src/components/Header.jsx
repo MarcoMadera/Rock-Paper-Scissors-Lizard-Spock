@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 const Header = ({ classicalScore, bonusScore, game, show }) => {
   return (
     <header className="header" aria-hidden={show ? "true" : ""} tabIndex={show ? "-1" : ""}>
+      {game && 
       <div className="header__container">
         {game === "bonus" ? (
           <LogoBonus
@@ -21,6 +22,7 @@ const Header = ({ classicalScore, bonusScore, game, show }) => {
           <h1>{game === "bonus" ? bonusScore : classicalScore}</h1>
         </div>
       </div>
+      }
     </header>
   );
 };

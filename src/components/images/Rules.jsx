@@ -1,7 +1,7 @@
 import React from "react";
 
 const Rules = (props) => (
-  <svg width={305} height={271} aria-labelledby="title" tabIndex="1" {...props}>
+  <svg width={305} height={271} tabIndex="0" {...props}>
     <title>Paper beats Rock
 - Rock beats Scissors
 - Scissors beats Paper</title>

@@ -1,7 +1,7 @@
 import React from "react";
 
 const Rock = (props) => (
-  <svg width={48} height={48} aria-labelledby="title" {...props}>
+  <svg width={48} height={48} {...props}>
     <title>Rock Chip</title>
     <path
       fill="#3B4262"

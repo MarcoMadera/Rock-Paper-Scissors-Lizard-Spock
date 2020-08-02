@@ -1,7 +1,7 @@
 import React from "react";
 
 const Lizard =(props) => (
-  <svg width={63} height={60} aria-labelledby="title" {...props}>
+  <svg width={63} height={60} {...props}>
     <title>Lizard Chip</title>
     <path
       fill="#3B4262"
