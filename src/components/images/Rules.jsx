@@ -1,7 +1,10 @@
 import React from "react";
 
-export default (props) => (
-  <svg width={305} height={271} {...props}>
+const Rules = (props) => (
+  <svg width={305} height={271} aria-labelledby="title" tabIndex="1" {...props}>
+    <title>Paper beats Rock
+- Rock beats Scissors
+- Scissors beats Paper</title>
     <defs>
       <linearGradient id="prefix__a" x1="50%" x2="50%" y1="0%" y2="100%">
         <stop offset="0%" stopColor="#FFF" stopOpacity={0.097} />
@@ -142,3 +145,5 @@ export default (props) => (
     </g>
   </svg>
 );
+
+export default Rules;

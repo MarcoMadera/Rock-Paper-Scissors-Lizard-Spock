@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useCallback } from "react";
 import "./css/Modal.css";
 import ReactDOM from "react-dom";
 import Rules from "./images/Rules";
@@ -7,14 +7,30 @@ import Close from "./icons/Close";
 import Logo from "./images/Logo";
 import LogoBonus from "./images/LogoBonus";
 
-function Modal({
+const Modal = ({
   show,
   closeModal,
   game,
   setGame,
   classicalScore,
   bonusScore,
-}) {
+}) => {
+  const onPressEsc = useCallback((event) => {
+    if (event.keyCode === 27) {
+      closeModal();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("keydown", onPressEsc, false);
+
+    return () => {
+      document.removeEventListener("keydown", onPressEsc, false);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const modal = !game ? (
     <div className="modal__container">
       <div onClick={closeModal} />
@@ -24,9 +40,9 @@ function Modal({
           background: "radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%))",
         }}
       >
-        <h1 className="modal__selectGame">Choose a game</h1>
-
-        <div
+        <h1 className="modal__selectGame">Select game mode</h1>
+        <button
+          aria-label="Rock Paper Scissors Mode"
           className="header__container pointer"
           onClick={() => {
             setGame("classical");
@@ -38,9 +54,9 @@ function Modal({
             <p>SCORE</p>
             <h1>{classicalScore}</h1>
           </div>
-        </div>
-
-        <div
+        </button>
+        <button
+          aria-label="Rock Paper Scissors Lizard Spock Mode"
           className="header__container pointer"
           onClick={() => {
             setGame("bonus");
@@ -56,7 +72,7 @@ function Modal({
             <p>SCORE</p>
             <h1>{bonusScore}</h1>
           </div>
-        </div>
+        </button>
       </div>
     </div>
   ) : (
@@ -69,16 +85,20 @@ function Modal({
         ) : (
           <Rules className="rulesModal" />
         )}
-        <Close
+        <button
+          className="modal__close"
+          aria-label="Close Modal"
+          tabIndex="1"
           onClick={() => {
             closeModal();
           }}
-          className="modal__close"
-        />
+        >
+          <Close />
+        </button>
       </div>
     </div>
   );
   return ReactDOM.createPortal(modal, document.getElementById("modal-root"));
-}
+};
 
 export default Modal;

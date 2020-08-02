@@ -26,7 +26,7 @@ const App = () => {
     localStorage.setItem("bonusScore", bonusScore.toString());
   }, [classicalScore, bonusScore]);
 
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   const openModal = () => setShow(true);
   const closeModal = () => setShow(false);
   const [game, setGame] = useState();
@@ -41,16 +41,18 @@ const App = () => {
         bonusScore={bonusScore}
       />
       <Header
+        show={show}
         classicalScore={classicalScore}
         bonusScore={bonusScore}
         game={game}
       />
       <Main
+        show={show}
         setClassicalScore={setClassicalScore}
         setBonusScore={setBonusScore}
         game={game}
       />
-      <Footer onClick={onClickRules} onClickGame={onClickGame} />
+      <Footer onClick={onClickRules} onClickGame={onClickGame} show={show} />
     </Fragment>
   );
 };

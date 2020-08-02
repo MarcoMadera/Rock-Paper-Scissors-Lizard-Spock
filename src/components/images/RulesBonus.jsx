@@ -1,9 +1,19 @@
 import React from "react";
 
-export default (props) => (
-  <svg width={336} height={330} {...props}>
+const RulesBonus = (props) => (
+  <svg width={336} height={330} aria-labelledby="title" tabIndex="1"{...props} >
+    <title>- Scissors beats Paper
+- Paper beats Rock
+- Rock beats Lizard
+- Lizard beats Spock
+- Spock beats Scissors
+- Scissors beats Lizard
+- Paper beats Spock
+- Rock beats Scissors
+- Lizard beats Paper
+- Spock beats Rock</title>
     <defs>
-      <linearGradient id="prefix__a" x1="50%" x2="50%" y1="0%" y2="100%">
+      <linearGradient id="prefix__c" x1="50%" x2="50%" y1="0%" y2="100%">
         <stop offset="0%" stopColor="#FFF" stopOpacity={0.097} />
         <stop offset="100%" stopColor="#FFF" stopOpacity={0} />
       </linearGradient>
@@ -14,7 +24,7 @@ export default (props) => (
         <ellipse
           cx={51.5}
           cy={50.172}
-          fill="url(#prefix__a)"
+          fill="url(#prefix__c)"
           rx={51.5}
           ry={50.172}
         />
@@ -38,7 +48,7 @@ export default (props) => (
         <ellipse
           cx={51.5}
           cy={50.172}
-          fill="url(#prefix__a)"
+          fill="url(#prefix__c)"
           rx={51.5}
           ry={50.172}
         />
@@ -62,7 +72,7 @@ export default (props) => (
         <ellipse
           cx={51.5}
           cy={50.172}
-          fill="url(#prefix__a)"
+          fill="url(#prefix__c)"
           rx={51.5}
           ry={50.172}
         />
@@ -86,7 +96,7 @@ export default (props) => (
         <ellipse
           cx={51.5}
           cy={50.172}
-          fill="url(#prefix__a)"
+          fill="url(#prefix__c)"
           rx={51.5}
           ry={50.172}
         />
@@ -110,7 +120,7 @@ export default (props) => (
         <ellipse
           cx={51.5}
           cy={50.172}
-          fill="url(#prefix__a)"
+          fill="url(#prefix__c)"
           rx={51.5}
           ry={50.172}
         />
@@ -294,3 +304,5 @@ export default (props) => (
     </g>
   </svg>
 );
+
+export default RulesBonus;

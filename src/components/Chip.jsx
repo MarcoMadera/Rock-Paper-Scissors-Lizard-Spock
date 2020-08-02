@@ -7,9 +7,15 @@ import Lizard from "./icons/Lizard";
 import Spock from "./icons/Spock";
 import PropTypes from "prop-types";
 
-const Chip = ({ type = "default", onClick, winner, showResults }) => {
+const Chip = ({ type = "default", onClick, winner, showResults, show}) => {
   return (
-    <div
+    <button
+      aria-label={type}
+      tabIndex={type==="rock" && show === false ? "1"
+        : type==="paper" && show === false ? "2" 
+          : type==="scissors" && show === false ? "3" 
+            : type==="lizard" && show === false ? "4" 
+              : type==="spock" && show === false ? "5" : "-1"}
       className="chip"
       style={{
         background:
@@ -50,15 +56,16 @@ const Chip = ({ type = "default", onClick, winner, showResults }) => {
           </div>
         </div>
       </div>
-    </div>
+    </button>
   );
 };
 
-Chip.propTypes ={
+Chip.propTypes = {
   type: PropTypes.string,
   onClick: PropTypes.func,
   winner: PropTypes.bool,
-  showResults : PropTypes.bool,
+  showResults: PropTypes.bool,
+  show: PropTypes.bool,
 };
 
-export default  Chip;
+export default Chip;

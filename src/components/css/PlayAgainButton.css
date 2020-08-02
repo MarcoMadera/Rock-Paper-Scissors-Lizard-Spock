@@ -20,3 +20,6 @@
   letter-spacing: 2.5px !important;
   font-weight: 600 !important;
 }
+.PlayAgainButton:hover > p {
+  color: rgb(219, 46, 77) !important;
+}

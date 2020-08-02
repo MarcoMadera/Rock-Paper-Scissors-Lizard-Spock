@@ -4,8 +4,8 @@ import Chip from "./Chip";
 import PlayingField from "./PlayingField";
 import PropTypes from "prop-types";
 
-const Main = ({ setClassicalScore, game, setBonusScore }) => {
-  const [chips, setChips] = useState(["paper", "scissors", "rock"]);
+const Main = ({ setClassicalScore, game, setBonusScore, show }) => {
+  const [chips, setChips] = useState([]);
   const [selected, setSelected] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
   const [randomChip, setRandomChip] = useState();
@@ -65,7 +65,11 @@ const Main = ({ setClassicalScore, game, setBonusScore }) => {
   };
 
   return (
-    <main className="principal">
+    <main
+      className="principal"
+      aria-hidden={show ? "true" : ""}
+      tabIndex={show ? "-1" : ""}
+    >
       {selected && isPlaying ? (
         <PlayingField
           selected={selected}
@@ -73,6 +77,7 @@ const Main = ({ setClassicalScore, game, setBonusScore }) => {
           randomChip={randomChip}
           winner={winner}
           result={result}
+          show={show}
         />
       ) : (
         !isPlaying && (
@@ -80,7 +85,7 @@ const Main = ({ setClassicalScore, game, setBonusScore }) => {
             className={game === "bonus" ? "select-ChipsBonus" : "select-Chips"}
           >
             {chips.map((chip) => (
-              <Chip type={chip} onClick={onClickChip} key={chip} />
+              <Chip type={chip} onClick={onClickChip} key={chip} show={show}/>
             ))}
           </div>
         )
@@ -93,5 +98,6 @@ Main.propTypes = {
   setClassicalScore: PropTypes.func,
   setBonusScore: PropTypes.func,
   game: PropTypes.string,
+  show: PropTypes.bool,
 };
 export default Main;

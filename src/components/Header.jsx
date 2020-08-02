@@ -3,9 +3,9 @@ import "./css/Header.css";
 import Logo from "./images/Logo";
 import LogoBonus from "./images/LogoBonus";
 import PropTypes from "prop-types";
-const Header = ({ classicalScore, bonusScore, game }) => {
+const Header = ({ classicalScore, bonusScore, game, show }) => {
   return (
-    <header className="header">
+    <header className="header" aria-hidden={show ? "true" : ""} tabIndex={show ? "-1" : ""}>
       <div className="header__container">
         {game === "bonus" ? (
           <LogoBonus
@@ -29,5 +29,6 @@ Header.propTypes = {
   classicalScore: PropTypes.number,
   bonusScore: PropTypes.number,
   game: PropTypes.string,
+  show: PropTypes.bool,
 };
 export default Header;

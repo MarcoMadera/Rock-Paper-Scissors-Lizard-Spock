@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 const PlayAgainButton = ({ reset }) => {
   return (
-    <button className="PlayAgainButton" onClick={() => reset()}>
+    <button className="PlayAgainButton" onClick={() => reset()} aria-label="Play again utton">
       <p>PLAY AGAIN</p>
     </button>
   );

@@ -1,7 +1,8 @@
 import React from "react";
 
-export default (props) => (
-  <svg width={20} height={20} {...props}>
+const Close = (props) => (
+  <svg width={20} height={20} aria-labelledby="title" {...props}>
+    <title>Close Button</title>
     <path
       fill="#3B4262"
       fillRule="evenodd"
@@ -10,3 +11,5 @@ export default (props) => (
     />
   </svg>
 );
+
+export default Close;
