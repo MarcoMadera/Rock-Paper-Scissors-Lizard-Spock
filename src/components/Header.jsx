@@ -5,7 +5,7 @@ import LogoBonus from "./images/LogoBonus";
 import PropTypes from "prop-types";
 const Header = ({ classicalScore, bonusScore, game, show }) => {
   return (
-    <header className="header" aria-hidden={show ? "true" : ""} tabIndex={show ? "-1" : ""}>
+    <header className="header" aria-hidden={show ? "true" : "false"} tabIndex={show ? "-1" : undefined}>
       {game && 
       <div className="header__container">
         {game === "bonus" ? (

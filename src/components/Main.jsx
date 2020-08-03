@@ -13,11 +13,11 @@ const Main = ({ setClassicalScore, game, setBonusScore, show }) => {
   useEffect(() => {
     if (game === "bonus") {
       document.title = "Rock Paper Scissors Lizard Spock";
-      setChips(["paper", "scissors", "rock", "lizard", "spock"]);
+      setChips(["rock", "paper", "scissors", "lizard", "spock"]);
     }
     if (game === "classical") {
       document.title = "Rock Paper Scissors";
-      setChips(["paper", "scissors", "rock"]);
+      setChips(["rock", "paper", "scissors"]);
     }
     if (!game) {
       document.title = "Frontend Mentor | Rock Paper Scissors";
@@ -67,8 +67,8 @@ const Main = ({ setClassicalScore, game, setBonusScore, show }) => {
   return (
     <main
       className="principal"
-      aria-hidden={show ? "true" : ""}
-      tabIndex={show ? "-1" : ""}
+      aria-hidden={show ? "true" : "false"}
+      tabIndex={show ? "-1" : undefined}
     >
       {selected && isPlaying ? (
         <PlayingField

@@ -27,7 +27,7 @@ const PlayingField = ({
   }, []);
 
   return (
-    <div className="selector" tabIndex={show ? "-1" : ""}>
+    <div className="selector" tabIndex={show ? "-1" : undefined}>
       <div className="selector-encounter">
         <p>YOU PICKED</p>
         <Chip
@@ -55,7 +55,7 @@ const PlayingField = ({
                     ? "You Win"
                     : "You Lose"}
               </h1>
-              <PlayAgainButton reset={reset} />
+              <PlayAgainButton reset={reset} show={show}/>
             </div>
           )}
         </>

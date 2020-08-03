@@ -7,15 +7,11 @@ import Lizard from "./icons/Lizard";
 import Spock from "./icons/Spock";
 import PropTypes from "prop-types";
 
-const Chip = ({ type = "default", onClick, winner, showResults, show}) => {
+const Chip = ({ type, onClick, winner, showResults, show}) => {
   return (
     <button
       aria-label={type}
-      tabIndex={type==="rock" && show === false ? "1"
-        : type==="paper" && show === false ? "2" 
-          : type==="scissors" && show === false ? "3" 
-            : type==="lizard" && show === false ? "4" 
-              : type==="spock" && show === false ? "5" : "-1"}
+      tabIndex={show === false ? "0" : "-1"}
       className="chip"
       style={{
         background:
@@ -27,9 +23,7 @@ const Chip = ({ type = "default", onClick, winner, showResults, show}) => {
                 ? "rgb(200, 108, 20)"
                 : type === "lizard"
                   ? "rgb(95, 55, 168)"
-                  : type === "spock"
-                    ? "rgb(45, 141, 171)"
-                    : "rgba(255, 255, 255,0.1)",
+                  : "rgb(45, 141, 171)",
         boxShadow:
           winner &&
           showResults &&
@@ -42,10 +36,10 @@ const Chip = ({ type = "default", onClick, winner, showResults, show}) => {
       <div className="chip__shadow">
         <div className="chip__content">
           <div className="chip__content__shadow">
-            {type === "paper" ? (
-              <Paper />
-            ) : type === "rock" ? (
+            {type === "rock" ? (
               <Rock />
+            ) : type === "paper" ? (
+              <Paper />
             ) : type === "scissors" ? (
               <Scissors />
             ) : type === "lizard" ? (
